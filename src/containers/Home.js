@@ -10,20 +10,21 @@ export default class Home extends Component {
 		this.state = {
 			isLoading: true,
 			testApiCall: [],
-			user:null,
+			user: null
 		};
-
+		
+		Auth.currentAuthenticatedUser({
+			bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+		}).then(user => {localStorage.setItem('user', JSON.stringify(user)); this.setState({user: JSON.parse(localStorage.getItem('user'))});})
+			.catch(err => console.log(err));
 	}
 
 	async componentDidMount() {
 		if (!this.props.isAuthenticated) {
 			return;
 		}
-
-		Auth.currentAuthenticatedUser({
-		bypassCache: false  // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-	}).then(user => {localStorage.setItem('user', JSON.stringify(user)); this.setState({user: JSON.parse(localStorage.getItem('user'))});})
-		.catch(err => console.log(err));
+		
+	
 
 		this.setState({ isLoading: false });
 	}
