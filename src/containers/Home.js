@@ -46,34 +46,65 @@ export default class Home extends Component {
 	renderTest() {
 		return (
 			<div className="test">
-				<PageHeader>Test API call</PageHeader>
-				{this.state.user &&
-				<div className="profile-user-info">
-								<div className="profile-info-row">
-									<div className="profile-info-name"> Email </div>
+				<PageHeader>Test App</PageHeader>
+						{this.state.user &&
+						<div className="container bootstrap snippet">
+						<div className="panel-body inf-content">
+						    <div className="row">
+								<div className="col-xs-12 col-sm-3 center">
+						 <span className="profile-picture">
+							 <img className="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png" ></img>
+						 </span>
 
-									<div className="profile-info-value">
-										<span>{this.state.user.username}</span>
-									</div>
-								</div>
+						 <div className="space space-4"></div>
 
-								<div className="profile-info-row">
-									<div className="profile-info-name"> Name </div>
-
-									<div className="profile-info-value">
-										<span>{this.state.user.attributes.name}</span>
-									</div>
-								</div>
-
-								<div className="profile-info-row">
-									<div className="profile-info-name"> Info </div>
-									<div className="profile-info-value">
-										<span>{this.state.user.attributes.profile}</span>
-									</div>
-								</div>
-
-							</div>
-							}
+					 </div>
+						        <div className="col-md-6">
+						            <strong>Information</strong><br/>
+						            <div className="table-responsive">
+						            <table className="table table-condensed table-responsive table-user-information">
+						                <tbody>
+						                    <tr>
+						                        <td>
+						                            <strong>
+						                                <span className="glyphicon glyphicon-user  text-primary"></span>
+						                                Name
+						                            </strong>
+						                        </td>
+						                        <td className="text-primary">
+						                            {this.state.user.attributes.name}
+						                        </td>
+						                    </tr>
+						                    <tr>
+						                        <td>
+						                            <strong>
+						                                <span className="glyphicon glyphicon-envelope text-primary"></span>
+						                                Email
+						                            </strong>
+						                        </td>
+						                        <td className="text-primary">
+						                            {this.state.user.username}
+						                        </td>
+						                    </tr>
+																<tr>
+						                        <td>
+						                            <strong>
+						                                <span className="glyphicon glyphicon-info  text-primary"></span>
+						                                Some info about me
+						                            </strong>
+						                        </td>
+						                        <td className="text-primary">
+						                            {this.state.user.attributes.profile}
+						                        </td>
+						                    </tr>
+						                </tbody>
+						            </table>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+						</div>
+					}
 			</div>
 
 		);

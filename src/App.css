@@ -3,5 +3,17 @@
 }
 
 .App .navbar-brand {
+	color: white;
 	font-weight: bold;
+}
+
+.App .navbar{
+	color: white;
+	background-color: green;
+}
+.App .navbar .brand, .navbar .nav > li > a {
+    color: white;
+}
+.navbar .brand, .navbar .nav > li > a:hover {
+    color: lightgray;
 }
